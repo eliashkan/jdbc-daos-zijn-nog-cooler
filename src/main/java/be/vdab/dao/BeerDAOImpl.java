@@ -49,15 +49,32 @@ public class BeerDAOImpl implements BeerDAO {
     public void updateBeer(Beer beer) throws BeerException {
 
         // Connection
+        try (Connection con = DriverManager.getConnection(
+                ADDRESS,
+                USER,
+                PASSWORD);
 
-        // Prepared Statement
+             // Prepared Statement
+                PreparedStatement prepstat = con.prepareStatement(
+                        "UPDATE Beers SET Name=?, Price=?, Alcohol=?, Stock=? WHERE Id=?"
+                )
+        ) {
 
-        // UPDATE Beers SET Name = ?, Price = ?, ... WHERE Id = ?
+            // Vraagtekens setten
+            prepstat.setString(1, beer.getName());
+            prepstat.setFloat(2, beer.getPrice());
+            prepstat.setFloat(3, beer.getAlcohol());
+            prepstat.setInt(4, beer.getStock());
+            prepstat.setInt(5, beer.getId());
 
-        // Vraagtekens setten
+            // Execute!
+            prepstat.executeUpdate();
 
-        // Execute!
-
-        // catch... BeerException
+        } catch (Exception e) {
+            // catch... BeerException
+            System.out.println("something went wrong :)");
+            e.printStackTrace();
+            throw new BeerException(e);
+        }
     }
 }
