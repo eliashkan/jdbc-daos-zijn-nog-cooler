@@ -1,4 +1,4 @@
-package be.vdab;
+package be.vdab.model;
 
 public class Beer {
     private int id;
