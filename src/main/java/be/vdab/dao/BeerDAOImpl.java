@@ -48,5 +48,16 @@ public class BeerDAOImpl implements BeerDAO {
     @Override
     public void updateBeer(Beer beer) throws BeerException {
 
+        // Connection
+
+        // Prepared Statement
+
+        // UPDATE Beers SET Name = ?, Price = ?, ... WHERE Id = ?
+
+        // Vraagtekens setten
+
+        // Execute!
+
+        // catch... BeerException
     }
 }
