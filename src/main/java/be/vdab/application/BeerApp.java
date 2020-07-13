@@ -10,7 +10,7 @@ public class BeerApp {
 
         Beer beerToUpdate = new Beer();
         beerToUpdate.setId(4);
-        beerToUpdate.setName("Andere Naam");
+        beerToUpdate.setName("HEY");
         beerToUpdate.setStock(100000000);
         beerToUpdate.setAlcohol(15);
         beerToUpdate.setPrice(0.5F);

@@ -59,6 +59,7 @@ public class BeerDAOImpl implements BeerDAO {
                         "UPDATE Beers SET Name=?, Price=?, Alcohol=?, Stock=? WHERE Id=?"
                 )
         ) {
+            System.out.println("Connection established. Ready to set values.");
 
             // Vraagtekens setten
             prepstat.setString(1, beer.getName());
@@ -67,8 +68,12 @@ public class BeerDAOImpl implements BeerDAO {
             prepstat.setInt(4, beer.getStock());
             prepstat.setInt(5, beer.getId());
 
+            System.out.println("Values set");
+
             // Execute!
             prepstat.executeUpdate();
+
+            System.out.println("Update executed. Closing down.");
 
         } catch (Exception e) {
             // catch... BeerException
