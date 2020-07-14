@@ -28,16 +28,16 @@ public class BeerDAOImpl implements BeerDAO {
 
 
             if (rs.next()) {
-                    Beer resultingBeer = new Beer();
-                    resultingBeer.setId(id);
-                    resultingBeer.setName(rs.getString("Name"));
-                    resultingBeer.setPrice(rs.getFloat("Price"));
-                    resultingBeer.setAlcohol(rs.getFloat("Alcohol"));
-                    resultingBeer.setStock(rs.getInt("Stock"));
-                    return resultingBeer;
-                } else {
-                    return null;
-                }
+                Beer resultingBeer = new Beer();
+                resultingBeer.setId(id);
+                resultingBeer.setName(rs.getString("Name"));
+                resultingBeer.setPrice(rs.getFloat("Price"));
+                resultingBeer.setAlcohol(rs.getFloat("Alcohol"));
+                resultingBeer.setStock(rs.getInt("Stock"));
+                return resultingBeer;
+            } else {
+                return null;
+            }
 
         } catch (SQLException sqlException) {
             System.out.println("oops something went wrong");
@@ -56,9 +56,9 @@ public class BeerDAOImpl implements BeerDAO {
                 PASSWORD);
 
              // Prepared Statement
-                PreparedStatement prepstat = con.prepareStatement(
-                        "UPDATE Beers SET Name=?, Price=?, Alcohol=?, Stock=? WHERE Id=?"
-                )
+             PreparedStatement prepstat = con.prepareStatement(
+                     "UPDATE Beers SET Name=?, Price=?, Alcohol=?, Stock=? WHERE Id=?"
+             )
         ) {
             System.out.println("Connection established. Ready to set values.");
 
