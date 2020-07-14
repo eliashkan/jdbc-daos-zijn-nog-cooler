@@ -19,14 +19,15 @@ public class BeerDAOImpl implements BeerDAO {
 
              PreparedStatement prepstat = con.prepareStatement(
                      "SELECT * FROM Beers WHERE Id = ?"
-             );
+             )
 
-             ResultSet rs = prepstat.executeQuery()
         ) {
 
             prepstat.setInt(1, id);
+            ResultSet rs = prepstat.executeQuery();
 
-                if (rs.next()) {
+
+            if (rs.next()) {
                     Beer resultingBeer = new Beer();
                     resultingBeer.setId(id);
                     resultingBeer.setName(rs.getString("Name"));

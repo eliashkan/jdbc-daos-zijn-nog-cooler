@@ -7,6 +7,29 @@ public class Beer {
     private int stock;
     private float alcohol;
 
+    // AUTO GENERATED EQUALS AND HASHCODE METHODS (IntelliJ Generate)
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Beer beer = (Beer) o;
+
+        if (id != beer.id) return false;
+        if (Float.compare(beer.price, price) != 0) return false;
+        if (Float.compare(beer.alcohol, alcohol) != 0) return false;
+        return name != null ? name.equals(beer.name) : beer.name == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = id;
+        result = 31 * result + (name != null ? name.hashCode() : 0);
+        result = 31 * result + (price != +0.0f ? Float.floatToIntBits(price) : 0);
+        result = 31 * result + (alcohol != +0.0f ? Float.floatToIntBits(alcohol) : 0);
+        return result;
+    }
+
     public int getId() {
         return id;
     }
